@@ -33,6 +33,7 @@ This project requires Python 3 and the following libraries:
 ## Key Functions 
 
 - `resize_image`: Resizes images to a uniform size.
+- `greyscale`: Uniform color
 - `hog_features`: Extracts HOG features from the resized images.
 - `prewitt_operator`: Applies the Prewitt operator to detect edges.
 - `morphological_edge_detection`: Uses morphological operations to detect edges.

@@ -2,3 +2,4 @@ BOVW models incldue train and validate.
 
 Val_2 works for updates inference
 
+fastai resnet train and evaluate models are available with unshared (because too large) resnet50 models 

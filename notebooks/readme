@@ -1,6 +1,6 @@
 ML process
 1. Load and shuffle the cat and dog image dataset.
-2. Preprocessing of images (grayscale, resize,	Histogram of Oriented Gradients (HOG), Prewitt Edge Detection, Morphological Edge Detection)
+2. Preprocessing of images (color, RGB, grayscale, resize,	Histogram of Oriented Gradients (HOG), Prewitt Edge Detection, Morphological Edge Detection)
 3. EDA dropping wrong images, getting the shape of elements and features.
 4. splitting dataset training 80% -test20%
 5. StandarScaler

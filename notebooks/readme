@@ -1,0 +1,20 @@
+ML process
+1. Load and shuffle the cat and dog image dataset.
+2. Preprocessing of images (grayscale, resize,	Histogram of Oriented Gradients (HOG), Prewitt Edge Detection, Morphological Edge Detection)
+3. EDA dropping wrong images, getting the shape of elements and features.
+4. splitting dataset training 80% -test20%
+5. StandarScaler
+6. Best PCA
+7. Best SVC
+8. Best RF
+9. Best KNN
+10. Evaluating the model performance 10-fold cross-validation.
+11. Assembler models (Gradient Boosting, Bagging, Majority voting)
+
+
+
+BOVW models incldue train and validate.
+
+Val_2 works for updates inference
+
+fastai resnet train and evaluate models are available with unshared (because too large) resnet50 models 

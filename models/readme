@@ -1,0 +1,3 @@
+BOVW model using bag of visual words
+
+Models using resnet50 and finetuned resnet50 not shared on github due to model size

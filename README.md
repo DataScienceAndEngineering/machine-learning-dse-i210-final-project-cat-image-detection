@@ -3,66 +3,81 @@ ConfigWithYourProjectName
 ==============================
 # DSEI210-S24-Final-Project
 
-# Cat-Dog Image Classifier
+# Cat and Dog Image Classification Project
 
-## Project Description
+## Overview
+This project focuses on building a robust model for classifying images of cats and dogs. It employs various machine learning and deep learning techniques, ranging from traditional algorithms to advanced techiniques as CNN and ResNet50
 
-This Applied Machine Learning project is designed to classify images into two categories: cats and dogs. It leverages several machine learning techniques and image processing methods to preprocess the images, extract features, and classify them using various algorithms.
+## Table of Contents
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Model Descriptions](#model-descriptions)
+- [Results](#results)
+- [Contributors](#contributors)
+- [Bibliography](#bibliography)
 
-## File Structure
-- `/content/cat`: Directory containing cat images.
-- `/content/dog`: Directory containing dog images.
+## Project Structure
+- `notebooks/`: Jupyter notebooks with detailed explanations and code for all the different methods.
+- `models/`: Source code for the models and data processing scripts.
+- `reports/`: Contains project reports and visualizations.
+- `README.md`: This file.
 
-## Requirements
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/cat-dog-classification.git
+   cd cat-dog-classification
 
-This project requires Python 3 and the following libraries:
-- pandas
-- numpy
-- scikit-learn
-- scikit-image
-- opencv-python
-- matplotlib
+2. Create a virtual environment and activate it:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # On Windows use `venv\Scripts\activate`
+
+3. Istall the required packeges:
+    ```bash
+    pip install -r requirements.txt
+
 
 ## Usage 
+Run the Jupyter notebooks to explore the data and train models.
+Use the provided scripts in the src/ directory to preprocess data and train models from the command line.
 
-1. **Image Preprocessing**: Images are converted to grayscale, resized, and subjected to various image processing techniques to extract features.
-2. **Feature Extraction**: Features are extracted using a Histogram of oriented Gradients (HOG), Prewwit operator, and morphological edge detection.
-3. **Modeling Training**: Several models are trained using techniques like Support Vector Machines, Random Forest, and K-Nearest Neighbors, with hyperparameter tuning via grid search.
-4. **Evaluation**: Models are evaluated based on accuracy, and ensemble methods are utilized to enhance prediction performance.
+## Model Description
 
-## Key Functions 
+**HOG + SVM**
+Histogram of Oriented Gradients (HOG) features are extracted and fed into a Support Vector Machine (SVM) for classification. This method achieved an accuracy of 78%.
 
-- `resize_image`: Resizes images to a uniform size.
-- `greyscale`: Uniform color
-- `hog_features`: Extracts HOG features from the resized images.
-- `prewitt_operator`: Applies the Prewitt operator to detect edges.
-- `morphological_edge_detection`: Uses morphological operations to detect edges.
-- `best_pca`: Finds the optimal number of principal components.
-- `best_svc`, `best_rf`, `best_knn`: Functions for finding the best parameters and performing grid search for SVC, Random Forest, and KNN respectively.
+**Random Forest**
+A Random Forest classifier is used with pixel values as features, resulting in a lower accuracy compared to HOG + SVM.
 
-## Example Code
-To process images and extract features:
-```python
-cat_dog_df['resized_image'] = cat_dog_df['image_path'].apply(lambda x: resize_image(x, size) if x else None)
-cat_dog_df['hog_features'] = cat_dog_df['resized_image'].apply(lambda x: hog_features(x, pixels_per_cell, cells_per_block) if x is not None and x.shape else None)
+**Bag of Visual Words (BOVW)**
+Uses a vocabulary of BRISK features to classify images with a K-Nearest Neighbors (KNN) classifier. The accuracy achieved was 67.5%.
 
-## To train and evaluate models
+**Convolutional Neural Networks (CNN)**
+A CNN was implemented using TensorFlow and Keras, achieving high accuracy by learning hierarchical representations of the images.
 
-best_svc(n_components, X_train, X_test, y_train, y_test)
-scores = cross_val_score(estimator=clf, X=X_train, y=y_train, cv=10, scoring='roc_auc')
-print(f'ROC AUC: {scores.mean():.2f} (+/- {scores.std():.2f}) [{label}]')
+**ResNet-50**
+Utilizes the ResNet-50 architecture pre-trained on ImageNet, fine-tuned for the cat and dog classification task. This model provided the highest accuracy.
 
-```
-## Visualization
-
-The project includes code to plot the results of PCA and the feature extraction methods to visualize their effectiveness.
+## Results
+* HOG + SVM: 78% accuracy
+* Random Forest: Lower accuracy
+* BOVW: 67.5% accuracy
+* CNN: High accuracy with advanced fitting and regularization techniques
+* ResNet-50: Highest accuracy among all models
 
 ## Contributors
 
 * Alexander Sandoval
 * Ryan Goldberg
 * Blanche Horbach
-* Valentina Samboni 
+* Valentina Samboni
+
+## Bibliography
+Raschka, Sebastian, et al. Machine Learning with PyTorch and Scikit-Learn: Develop Machine Learning and Deep Learning Models with Python. Packt, 2022.
+Shalev-Shwartz, Shai, and Shai Ben-David. Understanding Machine Learning: From Theory to Algorithms. Cambridge University Press, 2014.
+Hastie, Trevor, et al. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2nd ed. Springer, 2009.
 
 
 ------------
